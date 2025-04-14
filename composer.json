@@ -1,0 +1,12 @@
+{
+  "name": "zeqa/apibossbar",
+  "description": "xenialdan's bossbar api updated to pm5 for use on Zeqa",
+  "type": "apibossbar",
+  "autoload": {
+    "psr-4": {
+      "apibossbar\\": "src/apibossbar/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
