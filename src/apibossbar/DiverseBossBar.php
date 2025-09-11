@@ -239,7 +239,7 @@ class DiverseBossBar extends BossBar
 		return $pk;
 	}
 
-	public function getAttributeMap(Player $player = null): AttributeMap
+	public function getAttributeMap(?Player $player = null): AttributeMap
 	{
 		if ($player instanceof Player) {
 			return $this->attributeMaps[$player->getId()] ?? parent::getAttributeMap();
@@ -247,7 +247,7 @@ class DiverseBossBar extends BossBar
 		return parent::getAttributeMap();
 	}
 
-	public function getPropertyManager(Player $player = null): EntityMetadataCollection
+	public function getPropertyManager(?Player $player = null): EntityMetadataCollection
 	{
 		$propertyManager = /*clone*/
 			$this->propertyManager;//TODO check if memleak
