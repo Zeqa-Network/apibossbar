@@ -157,7 +157,8 @@ class BossBar
 	 */
 	public function setSubTitle(string $subTitle = ""): BossBar
 	{
-		$this->subTitle = $subTitle;
+        $this->title = $this->title . "\n" . $subTitle;
+        $this->subTitle = "";
 		#$this->sendEntityDataPacket($this->getPlayers());
 		$this->sendBossTextPacket($this->getPlayers());
 		return $this;
@@ -268,7 +269,7 @@ class BossBar
 		if ($entity instanceof Entity) {
 			$this->actorId = $entity->getId();
 			$this->attributeMap = $entity->getAttributeMap();//TODO try some kind of auto-updating reference
-			$this->getAttributeMap()->add($entity->getAttributeMap()->get(Attribute::HEALTH));//TODO Auto-update bar for entity? Would be cool, so the api can be used for actual bosses
+			$this->getAttributeMap()->add($entity->getAttributeMap()->get(Attribute::HEALTH));//TODO Auto-update bar for entity? Would be cool, so the pushoverAPI can be used for actual bosses
 			$this->propertyManager = $entity->getNetworkProperties();
 			if (!$entity instanceof Player) $entity->despawnFromAll();
 		} else {
