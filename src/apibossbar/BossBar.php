@@ -157,8 +157,7 @@ class BossBar
 	 */
 	public function setSubTitle(string $subTitle = ""): BossBar
 	{
-        $this->title = $this->title . "\n" . $subTitle;
-        $this->subTitle = "";
+        $this->subTitle = $subTitle;
 		#$this->sendEntityDataPacket($this->getPlayers());
 		$this->sendBossTextPacket($this->getPlayers());
 		return $this;
@@ -172,7 +171,7 @@ class BossBar
 	{
 		$text = $this->title;
 		if (!empty($this->subTitle)) {
-			$text .= "\n\n" . $this->subTitle;
+			$text .= "\n" . $this->subTitle;
 		}
 		return mb_convert_encoding($text, 'UTF-8');
 	}
